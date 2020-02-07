@@ -1,8 +1,8 @@
+/** @type {import('eslint').CLIEngine.Options} */
 module.exports = {
-    parser: "@typescript-eslint/parser",
+    reportUnusedDisableDirectives: true,
     parserOptions: {
         ecmaVersion: 9,
-        project: "./tsconfig.json",
         sourceType: "module"
     },
     env: {
@@ -28,11 +28,16 @@ module.exports = {
             version: "detect"
         },
         node: {
-            tryExtensions: [".ts"]
+            tryExtensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".node"]
         }
     },
     overrides: [
         {
+            parser: "@typescript-eslint/parser",
+            parserOptions: {
+                project: "./tsconfig.json",
+                createDefaultProgram: true
+            },
             files: ["**/*.ts", "**/*.tsx"],
             rules: {
                 "no-undef": "off",
@@ -52,16 +57,25 @@ module.exports = {
 
                 "@typescript-eslint/no-require-imports": 2,
                 "@typescript-eslint/no-var-requires": 2,
+                "@typescript-eslint/consistent-type-assertions": 2,
                 "@typescript-eslint/no-unnecessary-type-assertion": 2,
                 "@typescript-eslint/restrict-plus-operands": 2,
+                "@typescript-eslint/unbound-method": [
+                    "error",
+                    {
+                    "ignoreStatic": true
+                    }
+                ],
+                "@typescript-eslint/no-extra-non-null-assertion": ["error"],
+                "@typescript-eslint/no-floating-promises": ["error"],
 
                 // es2018
                 "prefer-object-spread": "error",
 
                 "@typescript-eslint/interface-name-prefix": [2, "never"],
-                "no-console": 2,
+                "no-console":  ["error", { allow: ["error", "warn"] }],
 
-                "no-case-declarations": 2,
+                "no-case-declarations": 2
             }
         },
         {
@@ -73,7 +87,7 @@ module.exports = {
                 "no-invalid-this": 0
             }
         },{
-            files: ["*.config.js", "config.js"],
+            files: ["*.js", "*.config.js", "config.js"],
             env: {
                 node: true
             }
