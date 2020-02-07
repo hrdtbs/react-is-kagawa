@@ -1,9 +1,9 @@
 import babel from "rollup-plugin-babel"
 import commonJS from "rollup-plugin-commonjs"
+import minify from "rollup-plugin-babel-minify"
 import pkg from "./package.json"
 import resolve from "rollup-plugin-node-resolve"
 import typescript from "rollup-plugin-typescript2"
-import minify from 'rollup-plugin-babel-minify'
 
 export default [
     {
@@ -32,6 +32,9 @@ export default [
             }),
             minify({})
         ],
-        output: [{ file: pkg.main, format: "cjs" }, { file: pkg.module, format: "es" }]
+        output: [
+            { file: pkg.main, format: "cjs" },
+            { file: pkg.module, format: "es" }
+        ]
     }
 ]
