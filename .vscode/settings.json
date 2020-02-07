@@ -1,0 +1,13 @@
+{
+    "prettier.disableLanguages": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "files.autoSave": "off",
+    "editor.formatOnSave": false,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}

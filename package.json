@@ -1,0 +1,83 @@
+{
+    "name": "@hrdtbs/tpllibjsjs",
+    "version": "0.2.4",
+    "main": "dist/index.cjs.js",
+    "jsnext:main": "dist/index.esm.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "types",
+        "package.json",
+        "dist"
+    ],
+    "repository": "git@github.com:hrdtbs/tpllibjs.git",
+    "author": "hrdtbs <harada.tsubasa.0422@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "@babel/preset-react": "^7.8.3",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@types/react": "^16.9.19",
+        "@typescript-eslint/eslint-plugin": "^2.19.0",
+        "@typescript-eslint/parser": "^2.19.0",
+        "babel-loader": "^8.0.6",
+        "conventional-changelog-cli": "^2.0.31",
+        "core-js": "3.6.4",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+        "husky": "^4.2.1",
+        "lint-staged": "^10.0.7",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^1.19.1",
+        "rollup": "^1.16.2",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.0.0",
+        "rollup-plugin-node-resolve": "^5.1.0",
+        "rollup-plugin-typescript2": "^0.25.3",
+        "textlint": "^11.6.3",
+        "textlint-rule-common-misspellings": "^1.0.1",
+        "textlint-rule-preset-ja-technical-writing": "^3.1.3",
+        "textlint-rule-preset-jtf-style": "^2.3.4",
+        "textlint-rule-prh": "^5.3.0",
+        "textlint-rule-spellcheck-tech-word": "^5.0.0",
+        "typescript": "^3.7.5"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "update": "yarn upgrade-interactive --latest",
+        "lint:ts": "eslint ./src/*.ts --cache",
+        "lint:json": "prettier '*.json'",
+        "lint:text": "textlint './*.md'",
+        "lint:fix:ts": "yarn lint:ts --fix",
+        "lint:fix:json": "yarn lint:json --write",
+        "lint:fix:text": "yarn lint:text --fix",
+        "lint": "run-p -l -n -c --aggregate-output lint:*",
+        "lint:fix": "run-p -l -n -c --aggregate-output lint:fix:*",
+        "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+        "release": "yarn build && yarn version && npm publish && git push && git push --tags"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "yarn lint:fix:ts",
+            "git add"
+        ],
+        "*.{json}": [
+            "yarn lint:fix:json",
+            "git add"
+        ],
+        "*.{md}": [
+            "yarn lint:fix:text",
+            "git add"
+        ]
+    }
+}

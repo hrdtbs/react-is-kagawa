@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "preset-jtf-style": true,
+    "spellcheck-tech-word": true,
+    "common-misspellings": true,
+    "preset-ja-technical-writing": true,
+    "prh": {
+            "rulePaths" :["./.textlint.prh.yml"]
+      }
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "strict": true,
+        "target": "es5",
+        "lib": ["esnext"],
+        "declaration": true,
+        "declarationDir": "./types",
+        "outDir": "./"
+    },
+    "include": ["src/*.ts"],
+    "exclude": ["node_modules"]
+}
