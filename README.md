@@ -1,5 +1,11 @@
 # React is Kagawa?
 
+```command
+yarn add react-is-kagawa
+```
+
+[CodeSandbox](https://codesandbox.io/s/udon-f98z8)
+
 ```tsx
 const {isKagawa, open} = useConfirmIsKagawa()
 
