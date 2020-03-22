@@ -1,5 +1,5 @@
 {
-    "name": "blocking-japan",
+    "name": "react-is-kagawa",
     "version": "1.0.0",
     "main": "dist/index.cjs.js",
     "jsnext:main": "dist/index.esm.js",
@@ -10,7 +10,7 @@
         "package.json",
         "dist"
     ],
-    "repository": "git@github.com:hrdtbs/tpllibjs.git",
+    "repository": "git@github.com:hrdtbs/react-is-kagawa.git",
     "author": "hrdtbs <harada.tsubasa.0422@gmail.com>",
     "license": "MIT",
     "devDependencies": {
