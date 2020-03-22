@@ -20,6 +20,7 @@
         "@commitlint/cli": "^8.3.5",
         "@commitlint/config-conventional": "^8.3.4",
         "@types/react": "^16.9.19",
+        "@types/react-dom": "^16.9.5",
         "@typescript-eslint/eslint-plugin": "^2.19.0",
         "@typescript-eslint/parser": "^2.19.0",
         "babel-loader": "^8.0.6",
@@ -35,6 +36,7 @@
         "prettier": "^1.19.1",
         "rollup": "^1.16.2",
         "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-babel-minify": "^10.0.0",
         "rollup-plugin-commonjs": "^10.0.0",
         "rollup-plugin-node-resolve": "^5.1.0",
         "rollup-plugin-typescript2": "^0.25.3",
@@ -79,5 +81,9 @@
             "yarn lint:fix:text",
             "git add"
         ]
+    },
+    "peerDependencies": {
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
     }
 }
